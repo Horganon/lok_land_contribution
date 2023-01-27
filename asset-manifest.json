@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/lok_land_contribution/static/css/main.32e771da.css",
-    "main.js": "/lok_land_contribution/static/js/main.9ea95644.js",
+    "main.js": "/lok_land_contribution/static/js/main.fa15ac93.js",
     "static/js/787.18736957.chunk.js": "/lok_land_contribution/static/js/787.18736957.chunk.js",
     "index.html": "/lok_land_contribution/index.html",
     "main.32e771da.css.map": "/lok_land_contribution/static/css/main.32e771da.css.map",
-    "main.9ea95644.js.map": "/lok_land_contribution/static/js/main.9ea95644.js.map",
+    "main.fa15ac93.js.map": "/lok_land_contribution/static/js/main.fa15ac93.js.map",
     "787.18736957.chunk.js.map": "/lok_land_contribution/static/js/787.18736957.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.32e771da.css",
-    "static/js/main.9ea95644.js"
+    "static/js/main.fa15ac93.js"
   ]
 }
