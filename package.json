@@ -1,5 +1,6 @@
 {
-  "name": "land_contribution",
+  "name": "lok_land_contribution",
+  "homepage": "https://github.com/Horganon/lok_land_contribution/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,6 +15,7 @@
     "ag-grid-react": "^29.0.0",
     "axios": "^1.2.4",
     "dayjs": "^1.11.7",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.7.0",
@@ -22,6 +24,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -67,6 +67,7 @@ export default function LandData() {
         suppressAndOrCondition: true,
       };
 
+    // eslint-disable-next-line no-unused-vars
     const [columnDefs, setColumnDefs] = useState([
         {headerName: 'Kingdom ID', field: 'kingdomId'},
         {headerName: 'Name', field: 'name', filterParams: nameFilterParams},
