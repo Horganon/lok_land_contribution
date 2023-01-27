@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Horganon.github.io/lok_land_contribution/static/css/main.32e771da.css",
-    "main.js": "/Horganon.github.io/lok_land_contribution/static/js/main.4e1eda42.js",
-    "static/js/787.18736957.chunk.js": "/Horganon.github.io/lok_land_contribution/static/js/787.18736957.chunk.js",
-    "index.html": "/Horganon.github.io/lok_land_contribution/index.html",
-    "main.32e771da.css.map": "/Horganon.github.io/lok_land_contribution/static/css/main.32e771da.css.map",
-    "main.4e1eda42.js.map": "/Horganon.github.io/lok_land_contribution/static/js/main.4e1eda42.js.map",
-    "787.18736957.chunk.js.map": "/Horganon.github.io/lok_land_contribution/static/js/787.18736957.chunk.js.map"
+    "main.css": "/lok_land_contribution/static/css/main.32e771da.css",
+    "main.js": "/lok_land_contribution/static/js/main.ca383997.js",
+    "static/js/787.18736957.chunk.js": "/lok_land_contribution/static/js/787.18736957.chunk.js",
+    "index.html": "/lok_land_contribution/index.html",
+    "main.32e771da.css.map": "/lok_land_contribution/static/css/main.32e771da.css.map",
+    "main.ca383997.js.map": "/lok_land_contribution/static/js/main.ca383997.js.map",
+    "787.18736957.chunk.js.map": "/lok_land_contribution/static/js/787.18736957.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.32e771da.css",
-    "static/js/main.4e1eda42.js"
+    "static/js/main.ca383997.js"
   ]
 }
