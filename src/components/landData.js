@@ -149,7 +149,7 @@ export default function LandData() {
             >
             </AgGridReact>
         </div>
-        <p>Total of how many dev points this land earn between {params.date_start} and {params.date_end} : {total}.</p>
+        <p>Total of how many dev points this land earn between {params.date_start} and {params.date_end} : <b>{Math.round(total*10)/100}pts</b></p>
         </>
     )
 }
