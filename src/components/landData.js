@@ -25,8 +25,9 @@ export default function LandData() {
 
     useEffect(() => {
         landservices.getById(params.id).then((data) => {
-            setDataLand(data.data.attributes[5].value);
-            console.log(data.data.attributes[5].value);
+            let res = data.data.attributes[5].value;
+            res = res.toLocaleString();
+            setDataLand(res);
         })
     }, [])
 
@@ -40,7 +41,6 @@ export default function LandData() {
                     setTotal(calcul);
                 }
                 setRowData(data.data.contribution);
-                console.log(data.data);
                 gridApi.hideOverlay();
             }).catch(err => {
                 console.error(err);
@@ -51,6 +51,10 @@ export default function LandData() {
 
     const onGridReady = (params) => {
         setGridApi(params.api);
+    }
+    const numberFilterParams = {
+        filterOptions: ['greaterThanOrEqual', 'lessThanOrEqual'],
+        suppressAndOrCondition: true,
     }
 
     const nameFilterParams = {
@@ -72,14 +76,40 @@ export default function LandData() {
         },
         debounceMs: 200,
         suppressAndOrCondition: true,
-      };
+    };
+
+    const kingdomFilterParams = {
+        filterOptions: ['contains'],
+        textFormatter: (r) => {
+          if (r == null) return null;
+          return r
+            .toLowerCase()
+            .replace(/[àáâãäå]/g, 'a')
+            .replace(/æ/g, 'ae')
+            .replace(/ç/g, 'c')
+            .replace(/[èéêë]/g, 'e')
+            .replace(/[ìíîï]/g, 'i')
+            .replace(/ñ/g, 'n')
+            .replace(/[òóôõö]/g, 'o')
+            .replace(/œ/g, 'oe')
+            .replace(/[ùúûü]/g, 'u')
+            .replace(/[ýÿ]/g, 'y');
+        },
+        debounceMs: 200,
+        suppressAndOrCondition: true,
+    };
+
+    const continentFilterParams = {
+        filterOptions: ['equals'],
+        suppressAndOrCondition: true,
+    }
 
     // eslint-disable-next-line no-unused-vars
     const [columnDefs, setColumnDefs] = useState([
-        {headerName: 'Kingdom ID', field: 'kingdomId'},
+        {headerName: 'Kingdom ID', field: 'kingdomId', filterParams: kingdomFilterParams},
         {headerName: 'Name', field: 'name', filterParams: nameFilterParams},
-        {headerName: 'Dev Points', field: 'total'},
-        {headerName: 'Continent Player', field: 'continent'}
+        {headerName: 'Dev Points', field: 'total', filter: 'agNumberColumnFilter', filterParams: numberFilterParams},
+        {headerName: 'Continent Player', field: 'continent', filter: 'agNumberColumnFilter', filterParams: continentFilterParams},
     ]);
 
     const defaultColDef = useMemo(() => {
@@ -103,7 +133,7 @@ export default function LandData() {
                 </Toolbar>
             </AppBar>
         </div>
-        <p>Total dev points of this land : <b>{dataLand}</b></p>
+        <p>Total dev points of this land : <b>{dataLand}pts</b></p>
         <div className="ag-theme-alpine" style={{ height: 500, width: '100%' }}>
             <AgGridReact
                 rowData={rowData}
