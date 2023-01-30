@@ -13,6 +13,7 @@ import '../css/loader.css'
 
 export default function LandData() {
     const params = useParams();
+    const [dataLand, setDataLand] = useState([]);
     const [rowData, setRowData] = useState([]);
     const [gridApi, setGridApi] = useState(null);
     const navigate = useNavigate();
@@ -22,11 +23,17 @@ export default function LandData() {
         navigate('/');
     }
 
+    useEffect(() => {
+        landservices.getById(params.id).then((data) => {
+            setDataLand(data.data.attributes[5].value);
+            console.log(data.data.attributes[5].value);
+        })
+    }, [])
 
     useEffect(() => {
         if(gridApi) {
             gridApi.showLoadingOverlay();
-            landservices.getById(params.id, params.date_start, params.date_end).then(data => {
+            landservices.getContributeursById(params.id, params.date_start, params.date_end).then(data => {
                 let calcul = 0;
                 for(let i = 0; i < data.data.contribution.length; i++) {
                     calcul = calcul + data.data.contribution[i].total;
@@ -84,10 +91,6 @@ export default function LandData() {
         }
     }, [])
 
-    
-
-      
-
     return (
         <>
         <div className="appbar" style={{marginBottom: "2%"}}>
@@ -100,6 +103,7 @@ export default function LandData() {
                 </Toolbar>
             </AppBar>
         </div>
+        <p>Total dev points of this land : <b>{dataLand}</b></p>
         <div className="ag-theme-alpine" style={{ height: 500, width: '100%' }}>
             <AgGridReact
                 rowData={rowData}
