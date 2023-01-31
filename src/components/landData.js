@@ -14,6 +14,7 @@ import '../css/loader.css'
 export default function LandData() {
     const params = useParams();
     const [dataLand, setDataLand] = useState([]);
+    const [lvlLand, setLvlLand] = useState([]);
     const [rowData, setRowData] = useState([]);
     const [gridApi, setGridApi] = useState(null);
     const navigate = useNavigate();
@@ -28,6 +29,7 @@ export default function LandData() {
             let res = data.data.attributes[5].value;
             res = res.toLocaleString();
             setDataLand(res);
+            setLvlLand(data.data.attributes[4].value);
         })
     }, [])
 
@@ -133,6 +135,7 @@ export default function LandData() {
                 </Toolbar>
             </AppBar>
         </div>
+        <p>Land level : <b>{lvlLand}</b></p>
         <p>Total dev points of this land : <b>{dataLand}pts</b></p>
         <div className="ag-theme-alpine" style={{ height: 500, width: '100%' }}>
             <AgGridReact
