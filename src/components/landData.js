@@ -31,7 +31,7 @@ export default function LandData() {
             setDataLand(res);
             setLvlLand(data.data.attributes[4].value);
         })
-    }, [])
+    }, [params.id])
 
     useEffect(() => {
         if(gridApi) {
@@ -49,7 +49,7 @@ export default function LandData() {
                 gridApi.showNoRowsOverlay();
             })
         }
-    }, [gridApi])
+    }, [gridApi, params.date_end, params.date_start, params.id])
 
     const onGridReady = (params) => {
         setGridApi(params.api);
